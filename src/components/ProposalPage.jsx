@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import LovePopup from './LovePopup'
+import WarningPopup from './WarningPopup'
 import './ProposalPage.css'
 
 const ProposalPage = () => {
   const [noButtonPosition, setNoButtonPosition] = useState({ top: 'auto', left: 'auto' })
   const [showPopup, setShowPopup] = useState(false)
+  const [showWarning, setShowWarning] = useState(false)
 
   const handleYes = () => {
     setShowPopup(true)
@@ -12,6 +14,10 @@ const ProposalPage = () => {
 
   const handleClosePopup = () => {
     setShowPopup(false)
+  }
+
+  const handleCloseWarning = () => {
+    setShowWarning(false)
   }
 
   const handleNoHover = () => {
@@ -59,6 +65,7 @@ const ProposalPage = () => {
               left: noButtonPosition.left,
             }}
             onMouseEnter={handleNoHover}
+            onClick={() => setShowWarning(true)}
           >
             No 😢
           </button>
@@ -66,6 +73,7 @@ const ProposalPage = () => {
       </div>
       
       {showPopup && <LovePopup onClose={handleClosePopup} />}
+      {showWarning && <WarningPopup onClose={handleCloseWarning} />}
     </div>
   )
 }

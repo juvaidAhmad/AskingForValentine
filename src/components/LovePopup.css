@@ -13,16 +13,31 @@
 }
 
 .popup-content {
-  background: linear-gradient(135deg, #ff9ff3, #feca57, #ff6b9d);
-  padding: 3rem;
-  border-radius: 30px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 250, 250, 0.95));
+  border: 1px solid rgba(233, 69, 96, 0.2);
   text-align: center;
-  max-width: 500px;
+  max-width: 600px;
   width: 90%;
   position: relative;
-  box-shadow: 0 25px 60px rgba(255, 0, 110, 0.4);
-  animation: slideUp 0.5s ease-out;
-  border: 3px solid rgba(255, 255, 255, 0.3);
+  animation: elegantPopupSlide 0.8s ease-out;
+  box-shadow: 
+    0 40px 100px rgba(0, 0, 0, 0.3),
+    0 20px 50px rgba(0, 0, 0, 0.2),
+    inset 0 0 60px rgba(233, 69, 96, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 3rem 2.5rem;
+}
+
+@keyframes elegantPopupSlide {
+  from {
+    opacity: 0;
+    transform: translateY(100px) scale(0.8) rotateX(15deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0);
+  }
 }
 
 .popup-hearts {
@@ -48,12 +63,13 @@
 }
 
 .popup-title {
-  font-size: 2.5rem;
-  color: white;
+  font-size: 3.5rem;
+  color: #e94560;
+  font-weight: 900;
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   margin-bottom: 2rem;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  animation: glow 2s ease-in-out infinite alternate;
 }
 
 .popup-message {
@@ -61,12 +77,22 @@
 }
 
 .popup-text {
-  font-size: 1.3rem;
-  color: white;
-  margin-bottom: 1rem;
-  font-weight: 600;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  animation: pulse 2s ease-in-out infinite;
+  font-size: 1.6rem;
+  color: #2c3e50;
+  font-weight: 500;
+  animation: elegantTextGlow 3s ease-in-out infinite;
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+@keyframes elegantTextGlow {
+  0%, 100% { 
+    text-shadow: 0 0 20px rgba(233, 69, 96, 0.2);
+  }
+  50% { 
+    text-shadow: 0 0 30px rgba(233, 69, 96, 0.4);
+  }
 }
 
 .popup-emoji {
@@ -145,16 +171,18 @@
 
 @media (max-width: 768px) {
   .popup-content {
-    padding: 2rem;
+    padding: 2.5rem 1.5rem;
     margin: 1rem;
   }
   
   .popup-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    padding: 0.5rem;
   }
   
   .popup-text {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    padding: 0.6rem 1rem;
   }
   
   .big-emoji {
@@ -163,5 +191,28 @@
   
   .popup-emoji {
     gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .popup-content {
+    padding: 2rem 1rem;
+  }
+  
+  .popup-title {
+    font-size: 2rem;
+  }
+  
+  .popup-text {
+    font-size: 1.1rem;
+    padding: 0.5rem 0.8rem;
+  }
+  
+  .big-emoji {
+    font-size: 2rem;
+  }
+  
+  .popup-emoji {
+    gap: 0.8rem;
   }
 }
