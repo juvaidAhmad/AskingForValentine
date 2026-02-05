@@ -1,0 +1,167 @@
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.popup-content {
+  background: linear-gradient(135deg, #ff9ff3, #feca57, #ff6b9d);
+  padding: 3rem;
+  border-radius: 30px;
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(255, 0, 110, 0.4);
+  animation: slideUp 0.5s ease-out;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.popup-hearts {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+}
+
+.floating-heart {
+  font-size: 2rem;
+  animation: bounce 1.5s ease-in-out infinite;
+}
+
+.floating-heart:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.floating-heart:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.popup-title {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.popup-message {
+  margin-bottom: 2rem;
+}
+
+.popup-text {
+  font-size: 1.3rem;
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.popup-emoji {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.big-emoji {
+  font-size: 3rem;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.big-emoji:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.big-emoji:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.popup-button {
+  background: white;
+  color: #ff006e;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.popup-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  from { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); }
+  to { text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.5); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@media (max-width: 768px) {
+  .popup-content {
+    padding: 2rem;
+    margin: 1rem;
+  }
+  
+  .popup-title {
+    font-size: 2rem;
+  }
+  
+  .popup-text {
+    font-size: 1.1rem;
+  }
+  
+  .big-emoji {
+    font-size: 2.5rem;
+  }
+  
+  .popup-emoji {
+    gap: 1rem;
+  }
+}

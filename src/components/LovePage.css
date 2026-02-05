@@ -1,0 +1,469 @@
+.love-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff006e 0%, #ff4081 20%, #ff6b9d 40%, #feca57 60%, #ff9ff3 80%, #ff6b9d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.love-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="100" fill="rgba(255,255,255,0.1)">💕</text></svg>'), 
+              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="80" fill="rgba(255,255,255,0.08)">🌹</text></svg>'),
+              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="60" fill="rgba(255,255,255,0.06)">💖</text></svg>');
+  background-size: 120px 120px, 100px 100px, 80px 80px;
+  background-position: 0 0, 60px 60px, 120px 120px;
+  animation: floatHearts 30s linear infinite;
+}
+
+@keyframes floatHearts {
+  0% { transform: translateY(100vh) rotate(0deg); }
+  100% { transform: translateY(-100px) rotate(360deg); }
+}
+
+.love-content {
+  max-width: 700px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 240, 245, 0.95));
+  border-radius: 25px;
+  padding: 2rem;
+  box-shadow: 0 20px 50px rgba(255, 0, 110, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.6);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  animation: slideIn 1.5s ease-out;
+  backdrop-filter: blur(15px);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.love-animation {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.heart {
+  font-size: 3rem;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.heart:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.heart:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.love-title {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #ff006e, #ff4081, #ff6b9d, #feca57);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  text-shadow: none;
+  animation: glowText 3s ease-in-out infinite alternate;
+  position: relative;
+}
+
+.love-title::before,
+.love-title::after {
+  content: '💕';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.love-title::before {
+  left: -2rem;
+}
+
+.love-title::after {
+  right: -2rem;
+  animation-delay: 0.3s;
+}
+
+@keyframes glowText {
+  from { filter: drop-shadow(0 0 10px rgba(255, 0, 110, 0.3)); }
+  to { filter: drop-shadow(0 0 25px rgba(255, 64, 129, 0.6)); }
+}
+
+.love-messages {
+  margin-bottom: 2rem;
+}
+
+.love-text {
+  font-size: 1.1rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  font-weight: 500;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.love-text:nth-child(1) { animation-delay: 0.2s; }
+.love-text:nth-child(2) { animation-delay: 0.4s; }
+.love-text:nth-child(3) { animation-delay: 0.6s; }
+.love-text:nth-child(4) { animation-delay: 0.8s; }
+.love-text:nth-child(5) { animation-delay: 1s; }
+.love-text:nth-child(6) { animation-delay: 1.2s; }
+.love-text:nth-child(7) { animation-delay: 1.4s; }
+.love-text:nth-child(8) { animation-delay: 1.6s; }
+.love-text:nth-child(9) { animation-delay: 1.8s; }
+.love-text:nth-child(10) { animation-delay: 2s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.romantic-thoughts {
+  margin-bottom: 2rem;
+}
+
+.thoughts-title {
+  font-size: 1.5rem;
+  color: #ff4757;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.thoughts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.thought-card {
+  background: linear-gradient(135deg, #ff9ff3, #feca57, #ff6b9d);
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(255, 107, 157, 0.2);
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeInScale 0.6s ease-out forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.thought-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: rotate(45deg);
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.thought-card:hover::before {
+  opacity: 1;
+  animation: shimmer 0.5s ease-out;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.thought-card:nth-child(1) { animation-delay: 2.2s; }
+.thought-card:nth-child(2) { animation-delay: 2.4s; }
+.thought-card:nth-child(3) { animation-delay: 2.6s; }
+.thought-card:nth-child(4) { animation-delay: 2.8s; }
+.thought-card:nth-child(5) { animation-delay: 3s; }
+.thought-card:nth-child(6) { animation-delay: 3.2s; }
+.thought-card:nth-child(7) { animation-delay: 3.4s; }
+.thought-card:nth-child(8) { animation-delay: 3.6s; }
+.thought-card:nth-child(9) { animation-delay: 3.8s; }
+.thought-card:nth-child(10) { animation-delay: 4s; }
+.thought-card:nth-child(11) { animation-delay: 4.2s; }
+.thought-card:nth-child(12) { animation-delay: 4.4s; }
+
+.thought-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.thought-emoji {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.thought-card p {
+  font-size: 0.9rem;
+  color: #2c3e50;
+  font-weight: 600;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.love-signature {
+  border-top: 2px solid #ff4757;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.love-signature p {
+  font-size: 1.1rem;
+  color: #ff4757;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.love-signature p:last-child {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  font-weight: normal;
+}
+
+.love-poem {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(254, 202, 87, 0.1));
+  border-radius: 15px;
+  border: 2px solid rgba(255, 107, 157, 0.2);
+}
+
+.poem-title {
+  font-size: 1.5rem;
+  color: #ff006e;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  animation: glowText 3s ease-in-out infinite alternate;
+}
+
+.poem-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.poem-line {
+  font-size: 1rem;
+  color: #d63031;
+  font-weight: 500;
+  font-style: italic;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.poem-line:nth-child(1) { animation-delay: 4.6s; }
+.poem-line:nth-child(2) { animation-delay: 4.8s; }
+.poem-line:nth-child(3) { animation-delay: 5s; }
+.poem-line:nth-child(4) { animation-delay: 5.2s; }
+
+.meetup-planning {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(254, 202, 87, 0.1));
+  border-radius: 20px;
+  border: 2px solid rgba(255, 0, 110, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.meetup-planning::before {
+  content: '💕';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.planning-title {
+  font-size: 1.5rem;
+  color: #ff006e;
+  margin-bottom: 0.8rem;
+  font-weight: bold;
+  animation: glowText 3s ease-in-out infinite alternate;
+}
+
+.planning-subtitle {
+  font-size: 1.1rem;
+  color: #d63031;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.planning-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.planning-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #ff006e, #ff4081);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(255, 0, 110, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.planning-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.planning-button:hover::before {
+  left: 100%;
+}
+
+.planning-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(255, 0, 110, 0.4);
+}
+
+.call-button {
+  background: linear-gradient(135deg, #00b894, #00cec9);
+}
+
+.plan-button {
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+}
+
+.button-icon {
+  font-size: 1.2rem;
+}
+
+.button-text {
+  position: relative;
+  z-index: 1;
+}
+
+.planning-note {
+  text-align: center;
+}
+
+.planning-note p {
+  font-size: 0.9rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.planning-note p:nth-child(1) { animation-delay: 5.4s; }
+.planning-note p:nth-child(2) { animation-delay: 5.6s; }
+
+@media (max-width: 768px) {
+  .love-content {
+    padding: 2rem;
+    margin: 1rem;
+  }
+  
+  .love-title {
+    font-size: 2.5rem;
+  }
+  
+  .love-title::before,
+  .love-title::after {
+    font-size: 1.5rem;
+  }
+  
+  .love-text {
+    font-size: 1.2rem;
+  }
+  
+  .thoughts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .love-animation {
+    gap: 1rem;
+  }
+  
+  .heart {
+    font-size: 2rem;
+  }
+  
+  .planning-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .planning-button {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .planning-title {
+    font-size: 1.8rem;
+  }
+  
+  .planning-subtitle {
+    font-size: 1.1rem;
+  }
+}
