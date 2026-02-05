@@ -1,11 +1,7 @@
 import React from 'react'
 import './LovePopup.css'
 
-interface LovePopupProps {
-  onClose: () => void
-}
-
-const LovePopup: React.FC<LovePopupProps> = ({ onClose }) => {
+const LovePopup = ({ onClose }) => {
   return (
     <div className="popup-overlay">
       <div className="popup-content">
@@ -16,15 +12,15 @@ const LovePopup: React.FC<LovePopupProps> = ({ onClose }) => {
         </div>
         
         <h2 className="popup-title">
-          Yeah! I'm so lucky Chudail Baby! 💕
+          Yeah! I'm so lucky! 💕
         </h2>
         
         <div className="popup-message">
           <p className="popup-text">
-            Just text me the Time, I'll come to you! 💑
+            Just text me the date and I'll come to you! 💑
           </p>
           <p className="popup-text">
-            To give you lots of kisses Idiot ! 😘💋
+            Give me lots of kisses! 😘💋
           </p>
         </div>
 
@@ -35,7 +31,7 @@ const LovePopup: React.FC<LovePopupProps> = ({ onClose }) => {
         </div>
 
         <button className="popup-button" onClick={onClose}>
-          Love you so much Chudail 💕
+          Close 💕
         </button>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import './LovePage.css'
 
-const LovePage: React.FC = () => {
+const LovePage = () => {
   return (
     <div className="love-container">
       <div className="love-content">

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import LovePopup from './LovePopup'
 import './ProposalPage.css'
 
-const ProposalPage: React.FC = () => {
+const ProposalPage = () => {
   const [noButtonPosition, setNoButtonPosition] = useState({ top: 'auto', left: 'auto' })
   const [showPopup, setShowPopup] = useState(false)
 
